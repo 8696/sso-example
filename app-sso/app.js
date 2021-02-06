@@ -15,7 +15,6 @@ app.use(koaView(path.resolve(__dirname, './view'), {
 
 app.use(koaBody());
 
-
 app.use(session());
 
 const koaRouter = new KoaRouter();
@@ -92,20 +91,11 @@ koaRouter.get('/async/login', async (ctx, next) => {
   const cookie = ctx.cookies.get(ctx.cookieKey);
   // 写入 redis
   await util.redisNode.set(token, cookie);
+  await util.redisNode.set(token + 'username', username);
+  await util.redisNode.set(token + 'loginTime', loginTime);
   ctx.body = `${ctx.request.query.callBack}('${token}')`;
 });
 
-
-/**
- * @description 获取用户信息
- * */
-
-koaRouter.post('/getUserInfo', async (ctx, next) => {
-  // 写入 session
-  const username = await ctx.session.get('username');
-  const loginTime = await ctx.session.get('loginTime');
-  ctx.body = { username, loginTime }
-});
 
 app.use(koaRouter.routes());
 

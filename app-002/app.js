@@ -27,18 +27,19 @@ koaRouter.get('/', async (ctx, next) => {
 });
 
 /**
- * @description 业务系统登录接口 | 业务系统登录很简单只需要写入 cookie 即可 | 关于用户信息等全部放在登录中心处理
+ * @description 业务系统登录接口 | 业务系统登录很简单只需要写入 cookie 即可
  * */
 koaRouter.get('/login', async (ctx, next) => {
-  const cookie = await util.redisNode.get(ctx.request.query.token);
-  await util.redisNode.remove(ctx.request.query.token)
+  const token = ctx.request.query.token
+  const cookie = await util.redisNode.get(token);
+  const username = await util.redisNode.get(token + 'username')
+  const loginTime = await util.redisNode.get(token + 'loginTime')
+  await util.redisNode.remove(token)
   // 将 cookie 和 登录系统保持同步
   ctx.cookies.set('session:key', cookie);
-  const userName = await ctx.session.get('username');
-  const loginTime = await ctx.session.get('loginTime');
   ctx.set('Content-Type', 'application/x-javascript');
   ctx.body = `${ctx.request.query.callBack}({
-    username: '${userName}',
+    username: '${username}',
     loginTime: '${loginTime}'
   })`;
 });

@@ -3,7 +3,6 @@ const util = require('../util/util')
 
 const cookieKey = 'session:key';
 
-
 module.exports = function () {
   return async (ctx, next) => {
     // 请求 cookie
