@@ -54,4 +54,4 @@ SSO单点登录跨站点NodeJS示例。基于 cookie、session 实现
 
 ### 相关知识
 
-[cookie](https://javascript.ruanyifeng.com/bom/cookie.html#toc7)
+[cookie](https://javascript.ruanyifeng.com/bom/cookie.html)
