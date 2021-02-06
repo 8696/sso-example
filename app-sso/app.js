@@ -74,7 +74,7 @@ koaRouter.get('/logout', async (ctx, next) => {
  * */
 koaRouter.get('/async/login', async (ctx, next) => {
   // 判断业务系统来源
-  const serverList = ['127.0.0.1', 'localhost', config.app001.host];
+  const serverList = ['127.0.0.1', 'localhost', config.app001.host, config.app002.host];
   const is = serverList.some((item) => {
     return new RegExp(item, 'g').test(ctx.headers.referer);
   });
