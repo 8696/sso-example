@@ -4,19 +4,19 @@ module.exports = {
   NODE_ENV,
   appSso: {
     host: NODE_ENV === 'production'
-      ? 'http://app-login.sso-demo.icodekk.com'
+      ? 'https://app-login.sso-demo.icodekk.com'
       : 'http://localhost:3000',
     port: 3000
   },
   app001: {
     host: NODE_ENV === 'production'
-      ? 'http://app-001.sso-demo.icode.link'
+      ? 'https://app-001.sso-demo.icode.link'
       : 'http://localhost:3001',
     port: 3001
   },
   app002: {
     host: NODE_ENV === 'production'
-      ? 'http://app-002.sso-demo.icode.link'
+      ? 'https://app-002.sso-demo.icode.link'
       : 'http://localhost:3002',
     port: 3002
   },
