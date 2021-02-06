@@ -25,7 +25,7 @@ module.exports = function () {
         await util.redisNode.remove(util.makeSessionKey(cookieValue, sessionKey))
       }
     };
-    // 为请求上下文添加一个 sessionKey
+    // 为请求上下文添加一个 cookieKey
     ctx.cookieKey = cookieKey
     await next();
   };

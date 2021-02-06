@@ -1,8 +1,8 @@
 {
   "name": "sso-demo",
   "version": "1.0.0",
-  "description": "SSO单点登录NodeJS示例",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "local:dev": "nodemon app.js",

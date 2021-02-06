@@ -35,8 +35,10 @@ koaRouter.get('/login', async (ctx, next) => {
   const username = await util.redisNode.get(token + 'username')
   const loginTime = await util.redisNode.get(token + 'loginTime')
   await util.redisNode.remove(token)
+  await util.redisNode.remove(token + 'username')
+  await util.redisNode.remove(token + 'loginTime')
   // 将 cookie 和 登录系统保持同步
-  ctx.cookies.set('session:key', cookie);
+  ctx.cookies.set(ctx.cookieKey, cookie);
   ctx.set('Content-Type', 'application/x-javascript');
   ctx.body = `${ctx.request.query.callBack}({
     username: '${username}',
