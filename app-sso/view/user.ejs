@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户中心</title>
+</head>
+<body>
+<h1>SSO 用户中心</h1>
+<div>
+    <span>登录用户：</span>
+    <span><%= username %></span>
+    <a href="/logout">退出登录</a>
+</div>
+<br>
+<div>
+    <a target="_blank" href="<%= app001Config.host %>">业务系统001</a>
+    <a target="_blank" href="<%= app002Config.host %>">业务系统002</a>
+</div>
+</body>
+</html>

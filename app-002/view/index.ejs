@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>业务系统 002</title>
+</head>
+<body>
+<h1>业务系统 002</h1>
+<div class="user-info" style="display: none">
+    <span>登录用户：</span>
+    <span class="user-name"></span>
+    <a href="<%= appSsoConfig.host %>/logout">退出登录</a>
+</div>
+<div class="login" style="">
+    <span>未登录</span>
+    <a href="<%= appSsoConfig.host %>/login">去登录</a>
+</div>
+</body>
+<script>
+  function ssoGetTokenSuccessCallback(token) {
+    var script = document.createElement('script');
+    script.src = '/login?token=' + token + '&callBack=ssoLoginSuccessCallBack&t=' + new Date().getTime();
+    document.querySelector('body').appendChild(script);
+  }
+
+  function ssoLoginSuccessCallBack(user) {
+    console.log(user);
+    document.querySelector('.user-info').style.display = 'block'
+    document.querySelector('.login').style.display = 'none'
+    document.querySelector('.user-name').innerText = user.username;
+  }
+
+  var script = document.createElement('script');
+  script.src = '<%= appSsoConfig.host %>/async/login?callBack=ssoGetTokenSuccessCallback&t=' + new Date().getTime();
+  document.querySelector('body').appendChild(script);
+</script>
+<script>
+
+</script>
+</html>
