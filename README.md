@@ -24,7 +24,7 @@ SSO单点登录跨站点NodeJS示例。基于 cookie、session 实现
 |-- app.js                    统一服务启动文件
 |-- config.js                 配置文件
 |-- package.json              项目配置文件
-|-- m2.config.js              pm2 配置文件
+|-- pm2.config.js              pm2 配置文件
 ```
 
 ### 环境
