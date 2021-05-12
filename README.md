@@ -1,4 +1,4 @@
-# sso
+# SSO example
 
 SSO单点登录跨站点NodeJS示例。基于 cookie、session 实现
 
