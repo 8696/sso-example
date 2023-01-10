@@ -24,14 +24,17 @@
   },
   "homepage": "https://github.com/8696/sso#readme",
   "devDependencies": {
-    "blueimp-md5": "^2.18.0",
-    "ejs": "^3.1.5",
-    "koa": "^2.13.1",
+    "blueimp-md5": "^2.19.0",
+    "ejs": "^3.1.8",
+    "koa": "^2.14.1",
     "koa-body": "^4.2.0",
-    "koa-router": "^10.0.0",
+    "koa-router": "^10.1.1",
     "koa-static": "^5.0.0",
-    "koa-views": "^7.0.0",
-    "redis": "^3.0.2",
+    "koa-views": "^7.0.2",
+    "redis": "^3.1.2",
     "uuid": "^8.3.2"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.20"
   }
 }
