@@ -10,7 +10,7 @@ module.exports = function () {
 
     // 如果请求未带 cookie 则手动设置 cookie
     if (!cookieValue) {
-      cookieValue = `${cookieKey}=${uuid.v4()}; SameSite=None; Secure`
+      cookieValue = `${cookieKey}=${uuid.v4()}; SameSite=None; Secure; HttpOnly;`
       ctx.set('Set-Cookie', cookieValue);
     }
     // 为请求上下文添加一个 session 对象供操作 session
